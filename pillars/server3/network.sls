@@ -22,4 +22,5 @@ mailer:
   local_interfaces: 127.0.0.1 ; ::1
   relay: mail.cloyne.net
   root_alias:
-    - clonm@bsc.coop,mitar.cloyne@tnode.com
+    - clonm@bsc.coop
+    - mitar.cloyne@tnode.com
