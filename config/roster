@@ -1,0 +1,5 @@
+server3:
+  host: server3.cloyne.net
+  port: 22
+  user: cloyne
+  sudo: True
