@@ -11,7 +11,7 @@ docker:
           bind: /ssl
           user: root
           group: root
-          mode: 700
+          mode: 701
         /var/run/docker.sock:
           bind: /var/run/docker.sock
           type: socket
