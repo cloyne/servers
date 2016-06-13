@@ -20,3 +20,9 @@ docker:
           user: nobody
           group: nogroup
           logrotate: True
+        /srv/storage/nginx/client_max_body_size.conf:
+          bind: /etc/nginx/conf.d/client_max_body_size.conf
+          type: file
+      files:
+        /srv/storage/nginx/client_max_body_size.conf: |
+          client_max_body_size 16384m;
