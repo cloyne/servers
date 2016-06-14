@@ -23,14 +23,12 @@ docker:
         /srv/storage/nginx/client_max_body_size.conf:
           bind: /etc/nginx/conf.d/client_max_body_size.conf
           type: file
-        /srv/storage/nginx/timeouts.conf:
-          bind: /etc/nginx/conf.d/timeouts.conf
+        /srv/storage/nginx/proxy_read_timeout.conf:
+          bind: /etc/nginx/conf.d/proxy_read_timeout.conf
           type: file
       files:
         /srv/storage/nginx/client_max_body_size.conf: |
           client_max_body_size 16384m;
-        /srv/storage/nginx/timeouts.conf: |
-          proxy_connect_timeout 600s;
-          proxy_send_timeout 600s;
-          proxy_read_timeout 600s;
-          send_timeout 600s;
+        # The same timeout as PHP's max_execution_time.
+        /srv/storage/nginx/proxy_read_timeout.conf: |
+          proxy_read_timeout 3600s;
