@@ -1,6 +1,8 @@
 # Cloyne servers installation
 
-This repository contains the necessary Salt files to deploy Cloyne servers.
+This repository contains [Salt](http://docs.saltstack.com/en/latest/) files to deploy Cloyne servers.
+Expected to be used with Ubuntu Server 14.04, but it might work with other
+distributions as well.
 
 An example Salt configuration, which may be used with `salt-ssh` follows.
 
@@ -9,7 +11,11 @@ pki_dir: /home/cloyne/servers/config/pki
 cachedir: /tmp/salt-cache
 jinja_trim_blocks: True
 jinja_lstrip_blocks: True
-gpg_keydir: /home/cloyne/.gnupg
+ssh_use_home_key: True
+ssh_minion_opts:
+  gpg_keydir: /home/cloyne/.gnupg
+log_file: /home/cloyne/servers/log/master
+ssh_log_file: /home/cloyne/servers/log/ssh
 file_roots:
   base:
     - /home/cloyne/servers/states
@@ -25,8 +31,15 @@ In this example, the `servers` directory contains a checkout of this repository,
 the `tozd` directory is a checkout of the [`tozd/salt` repository](https://github.com/tozd/salt),
 containing commonly used Salt states.
 
-You should put SSH keys used by `salt-ssh` to login into servers into the `config/pki`
-directory under this repository.
+You should also create a `config/roster` file with something like:
+
+```
+server3:
+  host: server3.cloyne.net
+  port: 22
+  user: cloyne
+  sudo: True
+```
 
 Secrets are encrypted with a GPG keypair to be protected. Future secrets can be encrypted using:
 
