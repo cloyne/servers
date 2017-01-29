@@ -21,7 +21,6 @@ docker:
           bind: /var/log/nginx
           user: nobody
           group: nogroup
-          logrotate: True
         /srv/storage/owncloud/redis:
           bind: /var/lib/redis
           user: 103
