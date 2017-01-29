@@ -1,11 +1,13 @@
 base:
-  server3:
+  server*:
     - core
     - network
     - mailer
-    - mdadm
     - smart
     - logwatch
     - pip
     - docker.base
     - docker.containers
+  
+  server[2-3]:
+    - mdadm
