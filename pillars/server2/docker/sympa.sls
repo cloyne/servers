@@ -7,7 +7,7 @@ docker:
       environment:
         VIRTUAL_HOST: cloyne.org
         VIRTUAL_ALIAS: /lists,/lists-static/
-        SET_REAL_IP_FROM: 172.19.0.0/16
+        SET_REAL_IP_FROM: 172.18.0.0/16
         REMOTES: mail
       volumes:
         /srv/sympa/etc/shared:

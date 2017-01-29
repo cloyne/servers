@@ -7,7 +7,7 @@ docker:
       environment:
         VIRTUAL_HOST: cloyne.org
         VIRTUAL_ALIAS: /phppgadmin/
-        SET_REAL_IP_FROM: 172.19.0.0/16
+        SET_REAL_IP_FROM: 172.18.0.0/16
         ADMINADDR:
           type: pillar
           key: mailer:root_alias
