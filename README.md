@@ -1,7 +1,7 @@
 # Cloyne servers installation
 
 This repository contains [Salt](http://docs.saltstack.com/en/latest/) files to deploy Cloyne servers.
-Expected to be used with Ubuntu Server 14.04, but it might work with other
+Expected to be used with Ubuntu Server 16.04, but it might work with other
 distributions as well.
 
 An example Salt configuration, which may be used with `salt-ssh` follows.
