@@ -6,8 +6,13 @@ docker:
         - VIRTUAL_HOST: files.cloyne.net
           VIRTUAL_URL: /
           PHP_FCGI_CHILDREN: 30
-          ADMINADDR: root@cloyne.org
-          REMOTES: mail.cloyne.net
+          ADMINADDR:
+            type: pillar
+            key: mailer:root_alias
+            join: ','
+          REMOTES:
+            type: pillar
+            key: mailer:relay
       volumes:
         /srv/storage/owncloud/config:
           bind: /var/www/owncloud/config

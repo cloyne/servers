@@ -24,7 +24,7 @@ docker:
           type: pillar
           key: mailer:root_alias
           join: ','
-        REMOTES: 
+        REMOTES:
           type: pillar
           key: mailer:relay
         LETSENCRYPT_EMAIL: clonm+server2@bsc.coop
