@@ -15,6 +15,10 @@ docker:
         REMOTES:
           type: pillar
           key: mailer:relay
+        MAILTO:
+          type: pillar
+          key: mailer:root_alias
+          join: ','
       volumes:
         /srv/var/log/phppgadmin:
           bind: /var/log/nginx

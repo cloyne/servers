@@ -20,13 +20,13 @@ docker:
           type: pillar
           key: mailer:root_alias
           join: ','
+        REMOTES:
+          type: pillar
+          key: mailer:relay
         MAILTO:
           type: pillar
           key: mailer:root_alias
           join: ','
-        REMOTES:
-          type: pillar
-          key: mailer:relay
         LETSENCRYPT_EMAIL: clonm+server2@bsc.coop
       volumes:
         /srv/var/log/letsencrypt:

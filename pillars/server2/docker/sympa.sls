@@ -8,7 +8,13 @@ docker:
         VIRTUAL_HOST: cloyne.org
         VIRTUAL_ALIAS: /lists,/lists-static/
         SET_REAL_IP_FROM: 172.18.0.0/16
-        REMOTES: mail
+        ADMINADDR:
+          type: pillar
+          key: mailer:root_alias
+          join: ','
+        REMOTES:
+          type: pillar
+          key: mailer:relay
       volumes:
         /srv/sympa/etc/shared:
           bind: /etc/sympa/shared
