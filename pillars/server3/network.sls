@@ -6,13 +6,19 @@ network:
     ipv4:
       - 216.218.196.2
   interfaces:
-    p5p1:
+    p1p1:
+      ipv4:
+        - type: static
+          address: 64.62.133.45
+          netmask: 255.255.255.248
+          gateway: 64.62.133.42
+    p1p2:
       ipv4:
         - type: static
           address: 10.20.32.11
           netmask: 255.255.252.0
           gateway: 10.20.32.1
-    p6p1:
+    p1p3:
       ipv4:
         - type: static
           address: 172.16.0.103
