@@ -2,21 +2,55 @@ docker:
   containers:
     nginx-proxy:
       image: tozd/nginx-proxy
+      network_mode:
+        name: server3.cloyne.org
       ports:
         80/tcp:
-          ip: 10.20.32.11
+          ip:
+            type: pillar
+            key: network:interfaces:p1p1:ipv4:0:address
           port: 80
+        443/tcp:
+          ip:
+            type: pillar
+            key: network:interfaces:p1p1:ipv4:0:address
+          port: 443
+      environment:
+        ADMINADDR:
+          type: pillar
+          key: mailer:root_alias
+          join: ','
+        REMOTES:
+          type: pillar
+          key: mailer:relay
+        MAILTO:
+          type: pillar
+          key: mailer:root_alias
+          join: ','
+        LETSENCRYPT_EMAIL: clonm+server3@bsc.coop
       volumes:
         /srv/storage/ssl:
           bind: /ssl
           user: root
           group: root
           mode: 701
+        /srv/storage/sites:
+          bind: /etc/nginx/sites-volume
+          user: root
+          group: root
         /var/run/docker.sock:
           bind: /var/run/docker.sock
           type: socket
         /srv/log/nginx-proxy:
           bind: /var/log/nginx
+          user: nobody
+          group: nogroup
+        /srv/log/letsencrypt:
+          bind: /var/log/letsencrypt
+          user: nobody
+          group: nogroup
+        /srv/log/dockergen:
+          bind: /var/log/dockergen
           user: nobody
           group: nogroup
         /srv/storage/nginx/client_max_body_size.conf:

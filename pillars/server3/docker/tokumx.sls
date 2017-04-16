@@ -2,6 +2,8 @@ docker:
   containers:
     tokumx:
       image: wlanslovenija/tokumx
+      network_mode:
+        name: server3.cloyne.org
       environment:
         TOKUMX_ARGS: --cacheSize 8G --directio
       sysfs:

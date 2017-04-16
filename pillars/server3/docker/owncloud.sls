@@ -2,17 +2,25 @@ docker:
   containers:
     owncloud:
       image: cloyne/owncloud
+      network_mode:
+        name: server3.cloyne.org
       environment:
-        - VIRTUAL_HOST: files.cloyne.org
-          VIRTUAL_URL: /
-          PHP_FCGI_CHILDREN: 30
-          ADMINADDR:
-            type: pillar
-            key: mailer:root_alias
-            join: ','
-          REMOTES:
-            type: pillar
-            key: mailer:relay
+        VIRTUAL_HOST: files.cloyne.org
+        VIRTUAL_URL: /
+        VIRTUAL_LETSENCRYPT: true
+        PHP_FCGI_CHILDREN: 30
+        SET_REAL_IP_FROM: 172.18.0.0/16
+        ADMINADDR:
+          type: pillar
+          key: mailer:root_alias
+          join: ','
+        REMOTES:
+          type: pillar
+          key: mailer:relay
+        MAILTO:
+          type: pillar
+          key: mailer:root_alias
+          join: ','
       volumes:
         /srv/storage/owncloud/config:
           bind: /var/www/owncloud/config
@@ -34,3 +42,5 @@ docker:
           bind: /var/log/redis
           user: nobody
           group: nogroup
+      dependencies:
+        - postgresql
