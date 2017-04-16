@@ -20,9 +20,9 @@ docker:
       environment:
         VIRTUAL_HOST: radio.cloyne.org
         VIRTUAL_URL: /
-        ROOT_URL: http://radio.cloyne.org
+        ROOT_URL: https://radio.cloyne.org
         MAIL_URL: smtp://mail.cloyne.org
-        LETSENCRYPT_EMAIL: clonm+server2@bsc.coop
+        VIRTUAL_LETSENCRYPT: true
       volumes:
         /srv/radio/run.config:
           bind: /etc/service/meteor/run.config
