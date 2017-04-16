@@ -1,7 +1,7 @@
 network:
   system:
     hostname: server1
-    fqdn: server1.cloyne.net
+    fqdn: server1.cloyne.org
   dns:
     ipv4:
       - 216.218.196.2
@@ -13,9 +13,9 @@ network:
           netmask: 255.255.255.248
           gateway: 64.62.133.42
 mailer:
-  other_hostnames: server1.cloyne.net
+  other_hostnames: server1.cloyne.org
   local_interfaces: 127.0.0.1 ; ::1
-  relay: mail.cloyne.net
+  relay: mail.cloyne.org
   root_alias:
     - clonm@bsc.coop
     - mitar.cloyne@tnode.com

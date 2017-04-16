@@ -29,7 +29,7 @@ docker:
           type: pillar
           key: mailer:root_alias
           join: ","
-        MY_DESTINATION: localhost.localdomain, localhost, mail.cloyne.net
+        MY_DESTINATION: localhost.localdomain, localhost, mail.cloyne.org
       volumes:
         /srv/sympa/etc/shared:
           bind: /etc/sympa/shared

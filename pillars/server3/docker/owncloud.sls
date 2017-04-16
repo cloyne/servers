@@ -3,7 +3,7 @@ docker:
     owncloud:
       image: cloyne/owncloud
       environment:
-        - VIRTUAL_HOST: files.cloyne.net
+        - VIRTUAL_HOST: files.cloyne.org
           VIRTUAL_URL: /
           PHP_FCGI_CHILDREN: 30
           ADMINADDR:
