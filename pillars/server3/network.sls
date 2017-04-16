@@ -17,7 +17,6 @@ network:
         - type: static
           address: 10.20.32.11
           netmask: 255.255.252.0
-          gateway: 10.20.32.1
     p1p3:
       ipv4:
         - type: static
