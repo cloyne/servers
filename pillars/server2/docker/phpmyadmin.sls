@@ -1,7 +1,7 @@
 docker:
   containers:
     phpmyadmin:
-      image: cloyne/phpmyadmin
+      image: tozd/phpmyadmin
       network_mode:
         name: server2.cloyne.org
       environment:
