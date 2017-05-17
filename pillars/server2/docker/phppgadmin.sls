@@ -5,6 +5,7 @@ docker:
       network_mode:
         name: server2.cloyne.org
       environment:
+        PHPPGADMIN_HOST: pgsql
         VIRTUAL_HOST: cloyne.org
         VIRTUAL_ALIAS: /phppgadmin/
         SET_REAL_IP_FROM: 172.18.0.0/16
