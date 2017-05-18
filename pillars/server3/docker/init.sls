@@ -1,6 +1,7 @@
 docker.version: auto
 
 include:
+  - server3.docker.iperf
   #- server3.docker.tokumx
   - server3.docker.postgresql
   #- server3.docker.redis
