@@ -1,7 +1,8 @@
 docker:
   containers:
     mysql:
-      image: cloyne/mysql
+      image: tozd/mysql
+      tag: "5.5"
       network_mode:
         name: server2.cloyne.org
       volumes:
