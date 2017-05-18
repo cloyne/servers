@@ -11,5 +11,6 @@ include:
   - server2.docker.blog
   - server2.docker.mail
   - server2.docker.sympa
+  - server2.docker.backup
   # TODO: Fix radio to work with new version of ownCloud and re-enable.
   #- server2.docker.radio
