@@ -50,10 +50,10 @@ docker:
           mode: 755
           contents: |
             #!/bin/bash -e
-            docker exec pgsql pg_dumpall -U postgres > /source/data/pgsql.pgdump
+            docker exec pgsql pg_dumpall -U postgres > /source/data/pgsql.sql
         /srv/storage/backup/backup.d/mysql:
           mode: 755
           contents: |
             #!/bin/bash -e
             PASSWORD=$(docker exec mysql grep password /etc/mysql/debian.cnf | awk '{print $3}' | head -1)
-            echo "$PASSWORD" | docker exec mysql mysqldump --user=debian-sys-maint --password="$PASSWORD" --all-databases > /source/data/mysql.pgdump
+            echo "$PASSWORD" | docker exec mysql mysqldump --user=debian-sys-maint --password="$PASSWORD" --all-databases > /source/data/mysql.sql
