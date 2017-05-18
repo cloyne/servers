@@ -46,7 +46,7 @@ docker:
           + /source/host/usr/local/etc
           + /source/host/usr/local/sbin
           - /source/host
-        /srv/storage/backup/backup.d/pgsqlcd:
+        /srv/storage/backup/backup.d/pgsql:
           mode: 755
           contents: |
             #!/bin/bash -e
