@@ -3,7 +3,26 @@
 This repository contains [Salt](http://docs.saltstack.com/en/latest/) files to deploy Cloyne servers.
 Expected to be used with Ubuntu Server 16.04, but it might work with other distributions as well.
 
-You can sync the state of a server by doing:
+Check out all submodules:
+```bash
+git submodule update --init --recursive
+```
+
+Install `salt-ssh` using `virtualenv`:
+```bash
+# Create a virtualenv, for example:
+virtualenv salt-virtualenv
+. salt-virtualenv/bin/activate
+
+# Install salt==2016.11.1
+pip install salt==2016.11.1
+
+# Check version of salt-ssh
+salt-ssh --version
+# salt-ssh 2016.11.1 (Carbon)
+```
+
+Then you can sync the state of a server by doing:
 
 ```
 $ salt-ssh '<servername>' state.highstate
