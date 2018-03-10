@@ -8,7 +8,7 @@ Check out all submodules:
 git submodule update --init --recursive
 ```
 
-Install `salt-ssh` using `virtualenv`:
+Install `salt-ssh` using `virtualenv` (you do NOT need `sudo` for these):
 ```bash
 # Create a virtualenv, for example:
 virtualenv salt-virtualenv
@@ -23,10 +23,15 @@ salt-ssh --version
 ```
 
 Then you can sync the state of a server by doing:
+(This updates the live server to match the docker images built from github, so
+make sure all the docker images still work!)
 
 ```
 $ salt-ssh '<servername>' state.highstate
 ```
+Note: This might take ~10 minutes with no output until the end.
+If it fails quickly with `ImportError: No module named oncurrent.futures`: ssh
+into `<servername>` and run `sudo pip install futures`.
 
 Secrets are encrypted with a GPG keypair to be protected. Future secrets can be encrypted using:
 
