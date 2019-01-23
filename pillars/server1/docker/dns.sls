@@ -1,7 +1,7 @@
 docker:
   containers:
     dns:
-      image: cloyne/powerdns-slave
+      image: cloyne/powerdns-secondary
       network_mode:
         name: server1.cloyne.org
       ports:
