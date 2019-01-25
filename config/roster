@@ -17,7 +17,7 @@ server3:
   sudo: True
 
 kingman-reverse-proxy:
-  host: 64.62.133.46
+  host: kingmanhall.org
   port: 22
   user: pirate
   sudo: True
