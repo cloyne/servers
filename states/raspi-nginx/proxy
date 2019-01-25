@@ -1,0 +1,8 @@
+server {
+  listen 80;
+  {%- for loc in salt['pillar.get']('nginx', {}) %}
+  location {{ loc["location"] }} {
+    proxy_pass {{ loc["proxy-pass"] }};
+  }
+  {%- endfor -%}
+}
