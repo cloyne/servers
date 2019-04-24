@@ -29,24 +29,24 @@ docker:
           join: ','
         LETSENCRYPT_EMAIL: clonm+server3@bsc.coop
       volumes:
+        /srv/log/letsencrypt:
+          bind: /var/log/letsencrypt
+          user: nobody
+          group: nogroup
+        /srv/storage/sites:
+          bind: /etc/nginx/sites-volume
+          user: root
+          group: root
         /srv/storage/ssl:
           bind: /ssl
           user: root
           group: root
           mode: 701
-        /srv/storage/sites:
-          bind: /etc/nginx/sites-volume
-          user: root
-          group: root
         /var/run/docker.sock:
           bind: /var/run/docker.sock
           type: socket
         /srv/log/nginx-proxy:
           bind: /var/log/nginx
-          user: nobody
-          group: nogroup
-        /srv/log/letsencrypt:
-          bind: /var/log/letsencrypt
           user: nobody
           group: nogroup
         /srv/log/dockergen:
