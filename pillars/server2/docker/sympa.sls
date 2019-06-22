@@ -6,6 +6,7 @@ docker:
         name: server2.cloyne.org
       environment:
         VIRTUAL_HOST: cloyne.org
+        REMOTE_ADDR: cloyne.org
         VIRTUAL_ALIAS: /lists,/lists-static/
         SET_REAL_IP_FROM: 172.18.0.0/16
         ADMINADDR:
@@ -20,6 +21,8 @@ docker:
           bind: /etc/sympa/shared
         /srv/var/log/sympa:
           bind: /var/log/sympa
+        /srv/var/log/sympa/nginx:
+          bind: /var/log/nginx
         /srv/sympa/data:
           bind: /var/lib/sympa
         /srv/sympa/nullmailer:
