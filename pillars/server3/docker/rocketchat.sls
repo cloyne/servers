@@ -6,12 +6,14 @@ docker:
         name: server3.cloyne.org
       environment:
         VIRTUAL_HOST: chat.cloyne.org
+        VIRTUAL_URL: /
         VIRTUAL_PORT: 3000
         VIRTUAL_ALIAS: /
         VIRTUAL_LETSENCRYPT: true
         PHP_FCGI_CHILDREN: 30
         SET_REAL_IP_FROM: 172.18.0.0/16
         MONGO_URL: mongodb://mongo:27017/rocketchat
+        MONGO_OPLOG_URL: mongodb://mongo:27017/local?replSet=rs01
         ROOT_URL: https://chat.cloyne.org
         Accounts_UseDNSDomainCheck: False
         ADMINADDR:

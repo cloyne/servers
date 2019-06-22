@@ -33,7 +33,11 @@ docker:
       volumes:
         /srv/sympa/etc/shared:
           bind: /etc/sympa/shared
+        /srv/rocketchat/etc/shared:
+          bind: /etc/rocketchat/shared
         /srv/var/log/postfix:
           bind: /var/log/postfix
         /srv/postfix:
           bind: /var/spool/postfix
+        /srv/web/ssl:
+          bind: /ssl
