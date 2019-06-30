@@ -1,7 +1,7 @@
 docker:
   containers:
     phppgadmin:
-      image: tozd/phppgadmin
+      image: clonm/phppgadmin
       network_mode:
         name: server2.cloyne.org
       environment:
