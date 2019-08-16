@@ -1,7 +1,7 @@
 docker:
   containers:
     nginx-proxy:
-      image: tozd/nginx-proxy
+      image: clonm/nginx-proxy
       network_mode:
         name: server3.cloyne.org
       ports:
