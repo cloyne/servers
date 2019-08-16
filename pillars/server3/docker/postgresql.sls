@@ -2,8 +2,8 @@
 docker:
   containers:
     postgresql:
-      image: tozd/postgresql
-      tag: "9.3"
+      image: clonm/postgresql
+      tag: "10"
       network_mode:
         name: server3.cloyne.org
       volumes:
