@@ -5,3 +5,5 @@ base:
     - server2
   server3:
     - server3
+  server4:
+    - server4
