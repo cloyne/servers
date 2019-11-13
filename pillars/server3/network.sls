@@ -11,16 +11,11 @@ network:
         - type: static
           address: 64.62.133.45
           netmask: 255.255.255.248
-          gateway: 64.62.133.42
+          gateway: 64.62.133.41
     p1p2:
       ipv4:
         - type: static
-          address: 10.20.32.11
-          netmask: 255.255.252.0
-    p1p3:
-      ipv4:
-        - type: static
-          address: 172.16.0.103
+          address: 192.168.88.11
           netmask: 255.255.255.0
 mailer:
   other_hostnames: server3.cloyne.org

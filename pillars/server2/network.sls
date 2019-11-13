@@ -11,13 +11,13 @@ network:
         - type: static
           address: 64.62.133.44
           netmask: 255.255.255.248
-          gateway: 64.62.133.42
+          gateway: 64.62.133.41
     eth1:
       ipv4:
         - type: static
-          address: 10.20.32.10
-          netmask: 255.255.252.0
-          gateway: 10.20.32.1 
+          address: 192.168.88.10
+          netmask: 255.255.255.0
+          gateway: 192.168.88.1
 mailer:
   other_hostnames: server2.cloyne.org
   local_interfaces: 127.0.0.1 ; ::1

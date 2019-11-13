@@ -11,7 +11,7 @@ network:
         - type: static
           address: 64.62.133.43
           netmask: 255.255.255.248
-          gateway: 64.62.133.42
+          gateway: 64.62.133.41
 mailer:
   other_hostnames: server1.cloyne.org
   local_interfaces: 127.0.0.1 ; ::1
