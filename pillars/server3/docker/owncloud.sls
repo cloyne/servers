@@ -24,12 +24,12 @@ docker:
       volumes:
         /srv/storage/owncloud/config:
           bind: /var/www/owncloud/config
-          user: 102
-          group: 105
+          user: 106
+          group: 108
         /srv/storage/owncloud/data:
           bind: /owncloud-data
-          user: 102
-          group: 105
+          user: 106
+          group: 108
         /srv/log/owncloud/nginx:
           bind: /var/log/nginx
           user: nobody
