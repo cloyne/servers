@@ -19,9 +19,12 @@ git submodule update --init --recursive
 
 Next, create a virtualenv, for example:
 ```bash
-virtualenv salt-virtualenv
+virtualenv --python=/usr/bin/python3 salt-virtualenv
 . salt-virtualenv/bin/activate
 ```
+
+If upgrading from python2, you'll need to `rm -rf` the existing
+`salt-virtualenv` folder first.
 
 ## Inside the virtualenv
 Your prompt should change to start with (salt-virtualenv). Make sure you're in a
@@ -30,12 +33,12 @@ terminal where you've activated the virtualenv before contiuing.
 You'll then install `salt-ssh` using `virtualenv` (you do NOT need `sudo` for
 these):
 ```bash
-# Install salt==2016.11.1
-pip install salt==2016.11.1
+# Install salt==2019.2.2
+pip install salt==2019.2.2
 
 # Check version of salt-ssh
 salt-ssh --version
-# salt-ssh 2016.11.1 (Carbon)
+# salt-ssh 2019.2.2 (Fluorine)
 ```
 
 ### Deploying to the server
@@ -47,7 +50,7 @@ make sure all the docker images still work!)
 $ salt-ssh '<servername>' state.highstate
 ```
 Note: This might take ~10 minutes with no output until the end.
-If it fails quickly with `ImportError: No module named oncurrent.futures`: ssh
+If it fails quickly with `ImportError: No module named concurrent.futures`: ssh
 into `<servername>` and run `sudo pip install futures`.
 
 # Secrets
@@ -75,14 +78,6 @@ one without `NOPASSWD`):
 2. Make sure you have passwordless login set up on the remote host
 3. pass the option `--priv ~/.ssh/id_rsa` to use your RSA key instead of Salt's.
 
-## python syntax errors when running with python3.7
-This currently needs to be run with python 2.7. We need to update it by the time
-python 2.7 becomes deprecated.
-
 ## permission denied for writing to the log file
 Pass the location of the log file inside this directory, e.g.
 `--log-file=./log/ssh`
-
-## Arch
-Install `python-virtualenv2` and run the commands with `virtualenv2` instead of
-`virtualenv`.
