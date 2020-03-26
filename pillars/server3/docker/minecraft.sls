@@ -8,6 +8,8 @@ docker:
         EULA: "TRUE"
         CONSOLE: "true"
         ENABLE_RCON: "false"
+        ONLINE_MODE: "FALSE"
+        MOTD: "Cloyne's own Minecraft server!"
       ports:
         25565/tcp:
           ip:
