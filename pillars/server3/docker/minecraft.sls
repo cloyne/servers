@@ -18,4 +18,4 @@ docker:
           port: 25565
       volumes:
         /srv/storage/minecraft/data:
-          bind=/data
+          bind:/data
