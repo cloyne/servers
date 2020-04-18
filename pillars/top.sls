@@ -5,3 +5,5 @@ base:
     - server2
   server3:
     - server3
+  kingman-reverse-proxy:
+    - kingman-reverse-proxy
