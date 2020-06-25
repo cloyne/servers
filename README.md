@@ -64,7 +64,15 @@ echo -n "supersecret" | gpg --armor --encrypt -r <keyid>
 
 # Adding New Servers
 When adding a new server, the `cloyne` user on the target server should have sudo permissions without needing to provide a password.
-You can configure that in `/etc/sudoers` on the target server with such line (you can replace existing
+
+First create the cloyne user and set a password:
+
+``` 
+useradd -m cloyne -G sudo
+passwd cloyne
+```
+
+Next, configure that in `/etc/sudoers` on the target server with such line (you can replace existing
 one without `NOPASSWD`):
 
 ```
