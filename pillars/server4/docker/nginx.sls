@@ -2,6 +2,7 @@ docker:
   containers:
     nginx-proxy:
       image: tozd/nginx-proxy
+      tag: "ubuntu-bionic"
       network_mode:
         name: server4.cloyne.org
       ports:
