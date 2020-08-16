@@ -6,7 +6,6 @@ docker:
         name: server3.cloyne.org
       environment:
         VIRTUAL_HOST: chat.cloyne.org
-        VIRTUAL_URL: /
         VIRTUAL_PORT: 3000
         VIRTUAL_ALIAS: /
         VIRTUAL_LETSENCRYPT: true
