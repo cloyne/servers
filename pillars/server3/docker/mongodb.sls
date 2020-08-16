@@ -1,7 +1,7 @@
 docker:
   containers:
     mongo:
-      image: clonm/mongodb
+      image: cloyne/mongodb
       tag: 3.6
       network_mode:
         name: server3.cloyne.org
