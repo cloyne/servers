@@ -15,3 +15,9 @@ server3:
   port: 22
   user: cloyne
   sudo: True
+
+server4:
+  host: server4.cloyne.org
+  port: 22
+  user: cloyne
+  sudo: True
