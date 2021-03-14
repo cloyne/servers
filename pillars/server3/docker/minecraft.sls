@@ -6,10 +6,11 @@ docker:
         name: server3.cloyne.org
       environment:
         EULA: "TRUE"
-        CONSOLE: "true"
-        ENABLE_RCON: "false"
+        CONSOLE: "TRUE"
+        ENABLE_RCON: "FALSE"
         ONLINE_MODE: "FALSE"
         MOTD: "Cloyne's own Minecraft server!"
+        ICON: "/data/icon.png"
       ports:
         25565/tcp:
           ip:
@@ -18,4 +19,4 @@ docker:
           port: 25565
       volumes:
         /srv/storage/minecraft/data:
-          bind:/data
+          bind: /data

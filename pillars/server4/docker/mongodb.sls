@@ -4,7 +4,7 @@ docker:
       image: cloyne/mongodb
       tag: 3.6
       network_mode:
-        name: server3.cloyne.org
+        name: server4.cloyne.org
       volumes:
         /srv/storage/rocketchat/mongo:
             bind: /var/lib/mongodb

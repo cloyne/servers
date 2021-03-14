@@ -3,9 +3,10 @@ docker:
     rocketchat:
       image: cloyne/rocketchat
       network_mode:
-        name: server3.cloyne.org
+        name: server4.cloyne.org
       environment:
-        VIRTUAL_HOST: chat.cloyne.org
+        VIRTUAL_HOST: server4.cloyne.org
+        VIRTUAL_URL: /
         VIRTUAL_PORT: 3000
         VIRTUAL_ALIAS: /
         VIRTUAL_LETSENCRYPT: true
@@ -13,7 +14,7 @@ docker:
         SET_REAL_IP_FROM: 172.18.0.0/16
         MONGO_URL: mongodb://mongo:27017/rocketchat
         MONGO_OPLOG_URL: mongodb://mongo:27017/local?replSet=rs01
-        ROOT_URL: https://chat.cloyne.org
+        ROOT_URL: https://server4.cloyne.org
         Accounts_UseDNSDomainCheck: False
         ADMINADDR:
           type: pillar
@@ -32,7 +33,7 @@ docker:
         3000/tcp:
           ip:
             type: pillar
-            key: network:interfaces:p1p1:ipv4:0:address
+            key: network:interfaces:eth0:ipv4:0:address
           port: 3000
       volumes:
         /srv/storage/rocketchat/uploads:

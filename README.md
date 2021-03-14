@@ -8,13 +8,18 @@ This repository contains [Salt](http://docs.saltstack.com/en/latest/) files to d
 Expected to be used with Ubuntu Server 16.04, but it might work with other distributions as well.
 
 ## Dependencies
+This only works on Ubuntu! It DOES work on Windows Subsystem for Linux with Ubuntu installed. It DOES NOT work on Mac OS.
+
 You will need to install the python package `virtualenv`. You can do this using
-`pip`. If you don't already have `pip` installed, look up instructions for your
+`pip`. If you don't already have pip installed, install it with `sudo apt install python3-pip`.
+Once you have `pip` installed, run `sudo pip3 install virtualenv`.
+
+If you don't already have `pip` installed, look up instructions for your
 operating system.
 On a fresh linux install you may also need to install `g++` and `python-dev`.
 
 
-Once you have `pip` installed, run `pip install virtualenv`.
+
 
 After cloning this repository, you will also need to check out all submodules:
 ```bash
@@ -37,12 +42,15 @@ terminal where you've activated the virtualenv before contiuing.
 You'll then install `salt-ssh` using `virtualenv` (you do NOT need `sudo` for
 these):
 ```bash
-# Install salt==2019.2.2
-pip install salt==2019.2.2
+# currently necessary as of 06/25/2020, but this is a bug and should be fixed, see https://github.com/saltstack/salt/issues/55029
+pip install distro
+
+# Install salt==3001
+pip install salt==3001
 
 # Check version of salt-ssh
 salt-ssh --version
-# salt-ssh 2019.2.2 (Fluorine)
+# salt-ssh 3001
 ```
 
 ### Deploying to the server
@@ -50,9 +58,14 @@ Then you can sync the state of a server by doing:
 (This updates the live server to match the docker images built from github, so
 make sure all the docker images still work!)
 
-```
+```bash
 $ salt-ssh '<servername>' state.highstate
 ```
+If using a server that is configured to disallow password logins, you must specify the public key:
+```bash
+$ salt-ssh '<servername>' state.highstate
+```
+
 Note: This might take ~10 minutes with no output until the end.
 If it fails quickly with `ImportError: No module named concurrent.futures`: ssh
 into `<servername>` and run `sudo pip install futures`.
@@ -68,7 +81,15 @@ echo -n "supersecret" | gpg --armor --encrypt -r <keyid>
 
 # Adding New Servers
 When adding a new server, the `cloyne` user on the target server should have sudo permissions without needing to provide a password.
-You can configure that in `/etc/sudoers` on the target server with such line (you can replace existing
+
+First create the cloyne user and set a password:
+
+``` 
+useradd -m cloyne -G sudo
+passwd cloyne
+```
+
+Next, configure that in `/etc/sudoers` on the target server with such line (you can replace existing
 one without `NOPASSWD`):
 
 ```
