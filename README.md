@@ -1,3 +1,7 @@
+# MAJOR CHANGES TO COME
+
+The following will be out of date soon. We will be moving to [Ansible](https://github.com/ansible/ansible) soon. For 
+more details on how we are doing this and why, see [our wiki pages](https://github.com/cloyne/servers/wiki/Architectural-Changes-and-why-we-did-them)
 # Cloyne servers installation
 
 This repository contains [Salt](http://docs.saltstack.com/en/latest/) files to deploy Cloyne servers.
