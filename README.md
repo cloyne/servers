@@ -106,3 +106,17 @@ one without `NOPASSWD`):
 ## permission denied for writing to the log file
 Pass the location of the log file inside this directory, e.g.
 `--log-file=./log/ssh`
+
+## ModuleNotFoundError: No moule named 'vboxapi'
+1. Install VirtualBox
+`sudo apt install virtualbox`
+2. Download SDK from virtualbox.org/wiki/Downloads
+3. cd to sdk/installer and run
+```
+export VBOX_INSTALL_PATH=$(which virtualbox)
+python vboxapisetup.py install
+```
+4. I also did `pip3 install virtualbox` and `pip3 install vboxapi` and `pip3 install pyvbox`; not sure if these were necessary
+
+## No module named 'urllib2'
+Use clonm/salt instead of tozd/salt. tozd/salt hasn't been upgraded to python3 yet.
