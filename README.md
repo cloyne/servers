@@ -41,6 +41,7 @@ terminal where you've activated the virtualenv before contiuing.
 
 You'll then install `salt-ssh` using `virtualenv` (you do NOT need `sudo` for
 these):
+
 ```bash
 # currently necessary as of 06/25/2020, but this is a bug and should be fixed, see https://github.com/saltstack/salt/issues/55029
 pip install distro
@@ -51,6 +52,12 @@ pip install salt==3001
 # Check version of salt-ssh
 salt-ssh --version
 # salt-ssh 3001
+```
+
+Update (08/25/2022): if you encounter Markup import error from Jinja2, it's because there's a bug with Jinja2 version 3.0.1+ with salt-ssh. This is the fix:
+```bash
+pip uninstall Jinja2 -y && pip uninstall MarkupSafe -y
+pip install Jinja2==3.0
 ```
 
 ### Deploying to the server
