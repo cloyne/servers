@@ -4,7 +4,7 @@ network:
     fqdn: server4.cloyne.org
   dns:
     ipv4:
-      - 216.218.196.2
+      - 137.184.4.148
   interfaces:
     eth0:
       ipv4:
