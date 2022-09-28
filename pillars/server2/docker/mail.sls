@@ -2,6 +2,7 @@ docker:
   containers:
     mail:
       image: cloyne/postfix
+      tag: clonm
       network_mode:
         name: server2.cloyne.org
       ports:
@@ -24,7 +25,7 @@ docker:
         MAILNAME:
           type: pillar
           key: mailer:relay
-        MY_NETWORKS: 10.20.32.0/22 172.17.0.0/16 172.18.0.0/16 64.62.133.40/29 127.0.0.0/8
+        MY_NETWORKS: 172.17.0.0/16 172.18.0.0/16 192.168.88.0/24 127.0.0.0/8
         ROOT_ALIAS:
           type: pillar
           key: mailer:root_alias

@@ -1,18 +1,18 @@
 server1:
   host: server1.cloyne.org
-  port: 22
+  port: 2021
   user: cloyne
   sudo: True
 
 server2:
   host: server2.cloyne.org
-  port: 22
+  port: 2022
   user: cloyne
   sudo: True
 
 server3:
   host: server3.cloyne.org
-  port: 22
+  port: 2023
   user: cloyne
   sudo: True
 
