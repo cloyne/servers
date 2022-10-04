@@ -4,14 +4,14 @@ network:
     fqdn: server4.cloyne.org
   dns:
     ipv4:
-      - 137.184.4.148
+      - 8.8.8.8
   interfaces:
-    eth0:
+    ens3:
       ipv4:
         - type: static
-          address: 192.81.216.6
-          netmask: 255.255.255.0
-          gateway: 192.81.216.1
+          address: 208.113.134.114
+          netmask: 255.255.248.0
+          gateway: 208.113.128.1
 mailer:
   other_hostnames: server4.cloyne.org
   local_interfaces: 127.0.0.1 ; ::1
