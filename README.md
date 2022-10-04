@@ -96,6 +96,19 @@ one without `NOPASSWD`):
 # Allow members of group sudo to execute any command
 %sudo   ALL=(ALL) NOPASSWD: ALL
 ```
+## Terminal setup (optional)
+This configures the prompt, vim, and tmux to match the existing servers
+```
+git clone https://github.com/ecawthon/cli_base
+cd cli_base
+./init.sh
+```
+you may have to run this per-user. or copy files around. 
+
+## Additional dreamhost steps
+
+had to manually `sudo apt install python3-pip` and run `debsums init`. Also had to add port allows from DreamCompute interface, but this should persist across instances.
+
 # Troubleshooting
 ## permission issues/can't copy salt key
 1. Check config/roster and make sure the settings are correct for the host
@@ -120,3 +133,6 @@ python vboxapisetup.py install
 
 ## No module named 'urllib2'
 Use clonm/salt instead of tozd/salt. tozd/salt hasn't been upgraded to python3 yet.
+
+## No Top file
+run it again. 
