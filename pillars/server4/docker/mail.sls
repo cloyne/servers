@@ -1,7 +1,7 @@
 docker:
   containers:
     mail:
-      image: cloyne/postfix
+      image: cloyne/postfix-relay
       network_mode:
         name: server4.cloyne.org
       ports:
