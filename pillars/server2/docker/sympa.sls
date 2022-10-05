@@ -4,6 +4,12 @@ docker:
       image: cloyne/sympa
       network_mode:
         name: server2.cloyne.org
+      ports:
+        22/tcp:
+          ip:
+            type: pillar
+            key: network:interfaces:eth0:ipv4:0:address
+          port: 2025
       environment:
         VIRTUAL_HOST: cloyne.org
         REMOTE_ADDR: cloyne.org
@@ -13,14 +19,20 @@ docker:
           type: pillar
           key: mailer:root_alias
           join: ','
-        REMOTES:
-          type: pillar
-          key: mailer:relay
+        REMOTES: mail.cloyne.org smtp port=587 starttls insecure tls-anon-auth user=sympa@cloyne.org pass=password
+        # REMOTES:
+        #   type: pillar
+        #   key: mailer:relay
       volumes:
         /srv/sympa/etc/shared:
           bind: /etc/sympa/shared
         /srv/var/log/sympa:
           bind: /var/log/sympa
+        /srv/web/ssl:
+          bind: /ssl
+          user: root
+          group: root
+          mode: 701
         /srv/var/log/sympa/nginx:
           bind: /var/log/nginx
         /srv/sympa/data:
