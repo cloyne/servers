@@ -8,5 +8,5 @@ docker:
         5001/tcp:
           ip:
             type: pillar
-            key: network:interfaces:eth1:ipv4:0:address
+            key: network:interfaces:eth0:ipv4:0:address
           port: 5001
