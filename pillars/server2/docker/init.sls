@@ -1,7 +1,7 @@
 docker.version: auto
 
 include:
-  - server2.docker.dns
+# - server2.docker.dns
   - server2.docker.iperf
   - server2.docker.pgsql
   - server2.docker.mysql
