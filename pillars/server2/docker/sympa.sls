@@ -19,7 +19,7 @@ docker:
           type: pillar
           key: mailer:root_alias
           join: ','
-        REMOTES: mail.cloyne.org smtp port=587 starttls insecure tls-anon-auth user=sympa@cloyne.org pass=password
+        REMOTES: mail smtp port=587
         # REMOTES:
         #   type: pillar
         #   key: mailer:relay

@@ -30,7 +30,7 @@ docker:
           type: pillar
           key: mailer:root_alias
           join: ","
-        MY_DESTINATION: localhost.localdomain, localhost, mail.cloyne.org
+        MY_DESTINATION: localhost.localdomain, localhost, smtp.cloyne.org, mail.cloyne.org
       volumes:
         /srv/sympa/etc/shared:
           bind: /etc/sympa/shared
@@ -38,7 +38,9 @@ docker:
           bind: /etc/rocketchat/shared
         /srv/var/log/postfix:
           bind: /var/log/postfix
-        /srv/postfix:
+        /srv/postfix/spool:
           bind: /var/spool/postfix
         /srv/web/ssl:
           bind: /ssl
+        /srv/postfix/sasl:
+          bind: /etc/postfix/sasl
