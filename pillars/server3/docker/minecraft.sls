@@ -11,6 +11,8 @@ docker:
         ONLINE_MODE: "FALSE"
         MOTD: "Cloyne's own Minecraft server!"
         ICON: "/data/icon.png"
+        TYPE: "PAPER"
+        VERSION: 1.19.2
       ports:
         25565/tcp:
           ip:
