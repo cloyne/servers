@@ -12,7 +12,8 @@ docker:
         MOTD: "Cloyne's own Minecraft server!"
         ICON: "/data/icon.png"
         TYPE: "PAPER"
-        VERSION: 1.19.2
+        USE_AIKAR_FLAGS: "TRUE"
+        VERSION: 1.19.3
       ports:
         25565/tcp:
           ip:
